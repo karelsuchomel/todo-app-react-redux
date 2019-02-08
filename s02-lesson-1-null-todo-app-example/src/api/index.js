@@ -21,11 +21,11 @@ const delay = (ms) =>
 			completed: false,
 		}],
 	}
-	return new Promise(resolve => setTimeout(resolve(fakeDatabase), ms))
+	return new Promise(resolve => setTimeout(resolve, ms, fakeDatabase))
 }
 
-export const fetchTodos = (filter) =>
-	delay(500).then( response => {
+export const fetchTodos = (filter) => 
+	delay(1000).then( response => {
 		switch (filter) {
 			case 'all':
 				return response.todos

@@ -134,18 +134,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
-/***/ "./node_modules/flux-standard-action/lib/index.js":
-/*!********************************************************!*\
-  !*** ./node_modules/flux-standard-action/lib/index.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _isString2 = __webpack_require__(/*! lodash/isString */ \"./node_modules/lodash/isString.js\");\n\nvar _isString3 = _interopRequireDefault(_isString2);\n\nvar _isPlainObject2 = __webpack_require__(/*! lodash/isPlainObject */ \"./node_modules/lodash/isPlainObject.js\");\n\nvar _isPlainObject3 = _interopRequireDefault(_isPlainObject2);\n\nexports.isFSA = isFSA;\nexports.isError = isError;\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction isFSA(action) {\n  return (0, _isPlainObject3.default)(action) && (0, _isString3.default)(action.type) && Object.keys(action).every(isValidKey);\n}\n\nfunction isError(action) {\n  return isFSA(action) && action.error === true;\n}\n\nfunction isValidKey(key) {\n  return ['type', 'payload', 'error', 'meta'].indexOf(key) > -1;\n}\n\n//# sourceURL=webpack:///./node_modules/flux-standard-action/lib/index.js?");
-
-/***/ }),
-
 /***/ "./node_modules/history/es/DOMUtils.js":
 /*!*********************************************!*\
   !*** ./node_modules/history/es/DOMUtils.js ***!
@@ -275,149 +263,6 @@ eval("\n\n/**\n * Copyright 2015, Yahoo! Inc.\n * Copyrights licensed under the 
 
 "use strict";
 eval("/**\n * Copyright (c) 2013-present, Facebook, Inc.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE file in the root directory of this source tree.\n */\n\n\n\n/**\n * Use invariant() to assert state which your program assumes to be true.\n *\n * Provide sprintf-style format (only %s is supported) and arguments\n * to provide information about what broke and what you were\n * expecting.\n *\n * The invariant message will be stripped in production, but the invariant\n * will remain to ensure logic does not differ in production.\n */\n\nvar invariant = function(condition, format, a, b, c, d, e, f) {\n  if (true) {\n    if (format === undefined) {\n      throw new Error('invariant requires an error message argument');\n    }\n  }\n\n  if (!condition) {\n    var error;\n    if (format === undefined) {\n      error = new Error(\n        'Minified exception occurred; use the non-minified dev environment ' +\n        'for the full error message and additional helpful warnings.'\n      );\n    } else {\n      var args = [a, b, c, d, e, f];\n      var argIndex = 0;\n      error = new Error(\n        format.replace(/%s/g, function() { return args[argIndex++]; })\n      );\n      error.name = 'Invariant Violation';\n    }\n\n    error.framesToPop = 1; // we don't care about invariant's own frame\n    throw error;\n  }\n};\n\nmodule.exports = invariant;\n\n\n//# sourceURL=webpack:///./node_modules/invariant/browser.js?");
-
-/***/ }),
-
-/***/ "./node_modules/is-promise/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/is-promise/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = isPromise;\n\nfunction isPromise(obj) {\n  return !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function';\n}\n\n\n//# sourceURL=webpack:///./node_modules/is-promise/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_Symbol.js":
-/*!****************************************!*\
-  !*** ./node_modules/lodash/_Symbol.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var root = __webpack_require__(/*! ./_root */ \"./node_modules/lodash/_root.js\");\n\n/** Built-in value references. */\nvar Symbol = root.Symbol;\n\nmodule.exports = Symbol;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_Symbol.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_baseGetTag.js":
-/*!********************************************!*\
-  !*** ./node_modules/lodash/_baseGetTag.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var Symbol = __webpack_require__(/*! ./_Symbol */ \"./node_modules/lodash/_Symbol.js\"),\n    getRawTag = __webpack_require__(/*! ./_getRawTag */ \"./node_modules/lodash/_getRawTag.js\"),\n    objectToString = __webpack_require__(/*! ./_objectToString */ \"./node_modules/lodash/_objectToString.js\");\n\n/** `Object#toString` result references. */\nvar nullTag = '[object Null]',\n    undefinedTag = '[object Undefined]';\n\n/** Built-in value references. */\nvar symToStringTag = Symbol ? Symbol.toStringTag : undefined;\n\n/**\n * The base implementation of `getTag` without fallbacks for buggy environments.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the `toStringTag`.\n */\nfunction baseGetTag(value) {\n  if (value == null) {\n    return value === undefined ? undefinedTag : nullTag;\n  }\n  return (symToStringTag && symToStringTag in Object(value))\n    ? getRawTag(value)\n    : objectToString(value);\n}\n\nmodule.exports = baseGetTag;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_baseGetTag.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_freeGlobal.js":
-/*!********************************************!*\
-  !*** ./node_modules/lodash/_freeGlobal.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */\nvar freeGlobal = typeof global == 'object' && global && global.Object === Object && global;\n\nmodule.exports = freeGlobal;\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ \"./node_modules/webpack/buildin/global.js\")))\n\n//# sourceURL=webpack:///./node_modules/lodash/_freeGlobal.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_getPrototype.js":
-/*!**********************************************!*\
-  !*** ./node_modules/lodash/_getPrototype.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var overArg = __webpack_require__(/*! ./_overArg */ \"./node_modules/lodash/_overArg.js\");\n\n/** Built-in value references. */\nvar getPrototype = overArg(Object.getPrototypeOf, Object);\n\nmodule.exports = getPrototype;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_getPrototype.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_getRawTag.js":
-/*!*******************************************!*\
-  !*** ./node_modules/lodash/_getRawTag.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var Symbol = __webpack_require__(/*! ./_Symbol */ \"./node_modules/lodash/_Symbol.js\");\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/**\n * Used to resolve the\n * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)\n * of values.\n */\nvar nativeObjectToString = objectProto.toString;\n\n/** Built-in value references. */\nvar symToStringTag = Symbol ? Symbol.toStringTag : undefined;\n\n/**\n * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {string} Returns the raw `toStringTag`.\n */\nfunction getRawTag(value) {\n  var isOwn = hasOwnProperty.call(value, symToStringTag),\n      tag = value[symToStringTag];\n\n  try {\n    value[symToStringTag] = undefined;\n    var unmasked = true;\n  } catch (e) {}\n\n  var result = nativeObjectToString.call(value);\n  if (unmasked) {\n    if (isOwn) {\n      value[symToStringTag] = tag;\n    } else {\n      delete value[symToStringTag];\n    }\n  }\n  return result;\n}\n\nmodule.exports = getRawTag;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_getRawTag.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_objectToString.js":
-/*!************************************************!*\
-  !*** ./node_modules/lodash/_objectToString.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/**\n * Used to resolve the\n * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)\n * of values.\n */\nvar nativeObjectToString = objectProto.toString;\n\n/**\n * Converts `value` to a string using `Object.prototype.toString`.\n *\n * @private\n * @param {*} value The value to convert.\n * @returns {string} Returns the converted string.\n */\nfunction objectToString(value) {\n  return nativeObjectToString.call(value);\n}\n\nmodule.exports = objectToString;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_objectToString.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_overArg.js":
-/*!*****************************************!*\
-  !*** ./node_modules/lodash/_overArg.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("/**\n * Creates a unary function that invokes `func` with its argument transformed.\n *\n * @private\n * @param {Function} func The function to wrap.\n * @param {Function} transform The argument transform.\n * @returns {Function} Returns the new function.\n */\nfunction overArg(func, transform) {\n  return function(arg) {\n    return func(transform(arg));\n  };\n}\n\nmodule.exports = overArg;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_overArg.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_root.js":
-/*!**************************************!*\
-  !*** ./node_modules/lodash/_root.js ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var freeGlobal = __webpack_require__(/*! ./_freeGlobal */ \"./node_modules/lodash/_freeGlobal.js\");\n\n/** Detect free variable `self`. */\nvar freeSelf = typeof self == 'object' && self && self.Object === Object && self;\n\n/** Used as a reference to the global object. */\nvar root = freeGlobal || freeSelf || Function('return this')();\n\nmodule.exports = root;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/_root.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/isArray.js":
-/*!****************************************!*\
-  !*** ./node_modules/lodash/isArray.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("/**\n * Checks if `value` is classified as an `Array` object.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is an array, else `false`.\n * @example\n *\n * _.isArray([1, 2, 3]);\n * // => true\n *\n * _.isArray(document.body.children);\n * // => false\n *\n * _.isArray('abc');\n * // => false\n *\n * _.isArray(_.noop);\n * // => false\n */\nvar isArray = Array.isArray;\n\nmodule.exports = isArray;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/isArray.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/isObjectLike.js":
-/*!*********************************************!*\
-  !*** ./node_modules/lodash/isObjectLike.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("/**\n * Checks if `value` is object-like. A value is object-like if it's not `null`\n * and has a `typeof` result of \"object\".\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is object-like, else `false`.\n * @example\n *\n * _.isObjectLike({});\n * // => true\n *\n * _.isObjectLike([1, 2, 3]);\n * // => true\n *\n * _.isObjectLike(_.noop);\n * // => false\n *\n * _.isObjectLike(null);\n * // => false\n */\nfunction isObjectLike(value) {\n  return value != null && typeof value == 'object';\n}\n\nmodule.exports = isObjectLike;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/isObjectLike.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/isPlainObject.js":
-/*!**********************************************!*\
-  !*** ./node_modules/lodash/isPlainObject.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var baseGetTag = __webpack_require__(/*! ./_baseGetTag */ \"./node_modules/lodash/_baseGetTag.js\"),\n    getPrototype = __webpack_require__(/*! ./_getPrototype */ \"./node_modules/lodash/_getPrototype.js\"),\n    isObjectLike = __webpack_require__(/*! ./isObjectLike */ \"./node_modules/lodash/isObjectLike.js\");\n\n/** `Object#toString` result references. */\nvar objectTag = '[object Object]';\n\n/** Used for built-in method references. */\nvar funcProto = Function.prototype,\n    objectProto = Object.prototype;\n\n/** Used to resolve the decompiled source of functions. */\nvar funcToString = funcProto.toString;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/** Used to infer the `Object` constructor. */\nvar objectCtorString = funcToString.call(Object);\n\n/**\n * Checks if `value` is a plain object, that is, an object created by the\n * `Object` constructor or one with a `[[Prototype]]` of `null`.\n *\n * @static\n * @memberOf _\n * @since 0.8.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.\n * @example\n *\n * function Foo() {\n *   this.a = 1;\n * }\n *\n * _.isPlainObject(new Foo);\n * // => false\n *\n * _.isPlainObject([1, 2, 3]);\n * // => false\n *\n * _.isPlainObject({ 'x': 0, 'y': 0 });\n * // => true\n *\n * _.isPlainObject(Object.create(null));\n * // => true\n */\nfunction isPlainObject(value) {\n  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {\n    return false;\n  }\n  var proto = getPrototype(value);\n  if (proto === null) {\n    return true;\n  }\n  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;\n  return typeof Ctor == 'function' && Ctor instanceof Ctor &&\n    funcToString.call(Ctor) == objectCtorString;\n}\n\nmodule.exports = isPlainObject;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/isPlainObject.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash/isString.js":
-/*!*****************************************!*\
-  !*** ./node_modules/lodash/isString.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var baseGetTag = __webpack_require__(/*! ./_baseGetTag */ \"./node_modules/lodash/_baseGetTag.js\"),\n    isArray = __webpack_require__(/*! ./isArray */ \"./node_modules/lodash/isArray.js\"),\n    isObjectLike = __webpack_require__(/*! ./isObjectLike */ \"./node_modules/lodash/isObjectLike.js\");\n\n/** `Object#toString` result references. */\nvar stringTag = '[object String]';\n\n/**\n * Checks if `value` is classified as a `String` primitive or object.\n *\n * @static\n * @since 0.1.0\n * @memberOf _\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a string, else `false`.\n * @example\n *\n * _.isString('abc');\n * // => true\n *\n * _.isString(1);\n * // => false\n */\nfunction isString(value) {\n  return typeof value == 'string' ||\n    (!isArray(value) && isObjectLike(value) && baseGetTag(value) == stringTag);\n}\n\nmodule.exports = isString;\n\n\n//# sourceURL=webpack:///./node_modules/lodash/isString.js?");
 
 /***/ }),
 
@@ -1089,18 +934,6 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {!function(e,t){ true?t(expor
 
 /***/ }),
 
-/***/ "./node_modules/redux-promise/lib/index.js":
-/*!*************************************************!*\
-  !*** ./node_modules/redux-promise/lib/index.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = promiseMiddleware;\n\nvar _isPromise = _interopRequireDefault(__webpack_require__(/*! is-promise */ \"./node_modules/is-promise/index.js\"));\n\nvar _fluxStandardAction = __webpack_require__(/*! flux-standard-action */ \"./node_modules/flux-standard-action/lib/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nfunction promiseMiddleware(_ref) {\n  var dispatch = _ref.dispatch;\n  return function (next) {\n    return function (action) {\n      if (!(0, _fluxStandardAction.isFSA)(action)) {\n        return (0, _isPromise.default)(action) ? action.then(dispatch) : next(action);\n      }\n\n      return (0, _isPromise.default)(action.payload) ? action.payload.then(function (result) {\n        return dispatch(_objectSpread({}, action, {\n          payload: result\n        }));\n      }).catch(function (error) {\n        dispatch(_objectSpread({}, action, {\n          payload: error,\n          error: true\n        }));\n        return Promise.reject(error);\n      }) : next(action);\n    };\n  };\n}\n\n//# sourceURL=webpack:///./node_modules/redux-promise/lib/index.js?");
-
-/***/ }),
-
 /***/ "./node_modules/redux/es/redux.js":
 /*!****************************************!*\
   !*** ./node_modules/redux/es/redux.js ***!
@@ -1251,7 +1084,7 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"fetchTodos\", function() { return fetchTodos; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTodo\", function() { return addTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"toggleTodo\", function() { return toggleTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"deleteTodo\", function() { return deleteTodo; });\n/* harmony import */ var _utils_uuid_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/uuid.js */ \"./src/utils/uuid.js\");\n/* harmony import */ var _api_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/index.js */ \"./src/api/index.js\");\n\n\n\nconst receiveTodos = (filter, response) => ({\n  type: 'RECIEVE_TODOS',\n  todos: response,\n  filter\n});\n\nconst fetchTodos = filter => _api_index_js__WEBPACK_IMPORTED_MODULE_1__[\"fetchTodos\"](filter).then(response => receiveTodos(filter, response));\nconst addTodo = text => ({\n  type: 'ADD_TODO',\n  id: Object(_utils_uuid_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n  text\n});\nconst toggleTodo = id => ({\n  type: 'TOGGLE_TODO',\n  id\n});\nconst deleteTodo = id => ({\n  type: 'DELETE_TODO',\n  id\n});\n\n//# sourceURL=webpack:///./src/actions/actionCreators.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"fetchTodos\", function() { return fetchTodos; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTodo\", function() { return addTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"toggleTodo\", function() { return toggleTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"deleteTodo\", function() { return deleteTodo; });\n/* harmony import */ var _utils_uuid_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/uuid.js */ \"./src/utils/uuid.js\");\n/* harmony import */ var _api_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/index.js */ \"./src/api/index.js\");\n\n\n\nconst requestTodos = filter => ({\n  type: 'REQUEST_TODOS',\n  filter\n});\n\nconst receiveTodos = (filter, response) => ({\n  type: 'RECEIVE_TODOS',\n  response,\n  filter\n});\n\nconst fetchTodos = filter => dispatch => {\n  dispatch(requestTodos(filter));\n  _api_index_js__WEBPACK_IMPORTED_MODULE_1__[\"fetchTodos\"](filter).then(response => dispatch(receiveTodos(filter, response)));\n};\nconst addTodo = text => ({\n  type: 'ADD_TODO',\n  id: Object(_utils_uuid_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n  text\n});\nconst toggleTodo = id => ({\n  type: 'TOGGLE_TODO',\n  id\n});\nconst deleteTodo = id => ({\n  type: 'DELETE_TODO',\n  id\n});\n\n//# sourceURL=webpack:///./src/actions/actionCreators.js?");
 
 /***/ }),
 
@@ -1263,7 +1096,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"fetchTodos\", function() { return fetchTodos; });\n/* harmony import */ var _utils_uuid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/uuid */ \"./src/utils/uuid.js\");\n // This is a fake in-memory implementation of something\n// that would be implemented by calling a REST server.\n\nconst delay = ms => {\n  const fakeDatabase = {\n    todos: [{\n      id: Object(_utils_uuid__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n      text: 'All the lonely people, from where do they come from?',\n      completed: true\n    }, {\n      id: Object(_utils_uuid__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n      text: 'Ridiculus! Ridiculus! Ridiculus!',\n      completed: true\n    }, {\n      id: Object(_utils_uuid__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n      text: 'Something rather mischievous',\n      completed: false\n    }]\n  };\n  return new Promise(resolve => setTimeout(resolve(fakeDatabase), ms));\n};\n\nconst fetchTodos = filter => delay(500).then(response => {\n  switch (filter) {\n    case 'all':\n      return response.todos;\n\n    case 'active':\n      return response.todos.filter(t => !t.completed);\n\n    case 'completed':\n      return response.todos.filter(t => t.completed);\n\n    default:\n      throw new Error(`Unknown filter: ${filter}`);\n  }\n});\n\n//# sourceURL=webpack:///./src/api/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"fetchTodos\", function() { return fetchTodos; });\n/* harmony import */ var _utils_uuid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/uuid */ \"./src/utils/uuid.js\");\n // This is a fake in-memory implementation of something\n// that would be implemented by calling a REST server.\n\nconst delay = ms => {\n  const fakeDatabase = {\n    todos: [{\n      id: Object(_utils_uuid__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n      text: 'All the lonely people, from where do they come from?',\n      completed: true\n    }, {\n      id: Object(_utils_uuid__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n      text: 'Ridiculus! Ridiculus! Ridiculus!',\n      completed: true\n    }, {\n      id: Object(_utils_uuid__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(),\n      text: 'Something rather mischievous',\n      completed: false\n    }]\n  };\n  return new Promise(resolve => setTimeout(resolve, ms, fakeDatabase));\n};\n\nconst fetchTodos = filter => delay(1000).then(response => {\n  switch (filter) {\n    case 'all':\n      return response.todos;\n\n    case 'active':\n      return response.todos.filter(t => !t.completed);\n\n    case 'completed':\n      return response.todos.filter(t => t.completed);\n\n    default:\n      throw new Error(`Unknown filter: ${filter}`);\n  }\n});\n\n//# sourceURL=webpack:///./src/api/index.js?");
 
 /***/ }),
 
@@ -1323,7 +1156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n/* harmony import */ var _actions_actionCreators_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/actionCreators.js */ \"./src/actions/actionCreators.js\");\n/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../reducers */ \"./src/reducers/index.js\");\nfunction _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }\n\nfunction _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }\n\nfunction _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }\n\n\n\n // Action creators\n\n // Selector\n\n\n\nconst Todo = ({\n  text,\n  completed,\n  onClick,\n  onDeleteClick\n}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"li\", {\n  className: completed ? \"completed\" : \"\",\n  onClick: onClick,\n  tabIndex: 0\n}, text, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n  onClick: e => {\n    e.stopPropagation();\n    onDeleteClick();\n  }\n}));\n\nconst TodoList = ({\n  todos,\n  onTodoClick,\n  onDeleteClick\n}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"ul\", null, todos.map(t => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Todo, _extends({}, t, {\n  key: t.id,\n  onClick: () => onTodoClick(t.id),\n  onDeleteClick: () => {\n    onDeleteClick(t.id);\n  }\n}))));\n\nclass VisibleTodoList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {\n  componentDidMount() {\n    this.fetchData();\n  }\n\n  componentDidUpdate(prevProps) {\n    if (this.props.filter !== prevProps.filter) {\n      this.fetchData();\n    }\n  }\n\n  fetchData() {\n    const {\n      filter,\n      fetchTodos\n    } = this.props;\n    fetchTodos(filter);\n  }\n\n  render() {\n    const _this$props = this.props,\n          {\n      deleteTodo,\n      toggleTodo\n    } = _this$props,\n          rest = _objectWithoutProperties(_this$props, [\"deleteTodo\", \"toggleTodo\"]);\n\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TodoList, _extends({}, rest, {\n      onTodoClick: toggleTodo,\n      onDeleteClick: deleteTodo\n    }));\n  }\n\n}\n\nconst mapStateToProps = (state, {\n  match\n}) => {\n  const filter = match.params.filter || 'all';\n  return {\n    todos: Object(_reducers__WEBPACK_IMPORTED_MODULE_4__[\"getVisibleTodos\"])(state, filter),\n    filter\n  };\n};\n\nVisibleTodoList = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"withRouter\"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps, _actions_actionCreators_js__WEBPACK_IMPORTED_MODULE_3__)(VisibleTodoList));\n/* harmony default export */ __webpack_exports__[\"default\"] = (VisibleTodoList);\n\n//# sourceURL=webpack:///./src/components/TodoList.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n/* harmony import */ var _actions_actionCreators_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/actionCreators.js */ \"./src/actions/actionCreators.js\");\n/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../reducers */ \"./src/reducers/index.js\");\nfunction _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }\n\n\n\n // Action creators\n\n // Selector\n\n\n\nconst Todo = ({\n  text,\n  completed,\n  onClick,\n  onDeleteClick\n}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"li\", {\n  className: completed ? \"completed\" : \"\",\n  onClick: onClick,\n  tabIndex: 0\n}, text, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n  onClick: e => {\n    e.stopPropagation();\n    onDeleteClick();\n  }\n}));\n\nconst TodoList = ({\n  todos,\n  onTodoClick,\n  onDeleteClick\n}) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"ul\", null, todos.map(t => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Todo, _extends({}, t, {\n  key: t.id,\n  onClick: () => onTodoClick(t.id),\n  onDeleteClick: () => {\n    onDeleteClick(t.id);\n  }\n}))));\n\nclass VisibleTodoList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {\n  componentDidMount() {\n    this.fetchData();\n  }\n\n  componentDidUpdate(prevProps) {\n    if (this.props.filter !== prevProps.filter) {\n      this.fetchData();\n    }\n  }\n\n  fetchData() {\n    const {\n      filter,\n      fetchTodos\n    } = this.props;\n    fetchTodos(filter);\n  }\n\n  render() {\n    const {\n      isFetching,\n      deleteTodo,\n      toggleTodo,\n      todos\n    } = this.props;\n\n    if (isFetching && !todos.length) {\n      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"ul\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"li\", null, \"Loading...\"));\n    }\n\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TodoList, {\n      todos: todos,\n      onTodoClick: toggleTodo,\n      onDeleteClick: deleteTodo\n    });\n  }\n\n}\n\nconst mapStateToProps = (state, {\n  match\n}) => {\n  const filter = match.params.filter || 'all';\n  return {\n    todos: Object(_reducers__WEBPACK_IMPORTED_MODULE_4__[\"getVisibleTodos\"])(state, filter),\n    isFetching: Object(_reducers__WEBPACK_IMPORTED_MODULE_4__[\"getIsFetching\"])(state, filter),\n    filter\n  };\n};\n\nVisibleTodoList = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"withRouter\"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps, _actions_actionCreators_js__WEBPACK_IMPORTED_MODULE_3__)(VisibleTodoList));\n/* harmony default export */ __webpack_exports__[\"default\"] = (VisibleTodoList);\n\n//# sourceURL=webpack:///./src/components/TodoList.js?");
 
 /***/ }),
 
@@ -1335,7 +1168,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-logger */ \"./node_modules/redux-logger/dist/redux-logger.js\");\n/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var redux_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-promise */ \"./node_modules/redux-promise/lib/index.js\");\n/* harmony import */ var redux_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_promise__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducers */ \"./src/reducers/index.js\");\n\n\n\n\n\nconst configureStore = () => {\n  const middlewares = [redux_promise__WEBPACK_IMPORTED_MODULE_2___default.a];\n\n  if (true) {\n    middlewares.push(redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a);\n  }\n\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducers__WEBPACK_IMPORTED_MODULE_3__[\"default\"], Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(...middlewares));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (configureStore);\n\n//# sourceURL=webpack:///./src/configureStore.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-logger */ \"./node_modules/redux-logger/dist/redux-logger.js\");\n/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducers */ \"./src/reducers/index.js\");\n\n\n\n\nconst thunk = store => next => action => typeof action === 'function' ? action(store.dispatch) : next(action);\n\nconst configureStore = () => {\n  const middlewares = [thunk];\n\n  if (true) {\n    middlewares.push(redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a);\n  }\n\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducers__WEBPACK_IMPORTED_MODULE_2__[\"default\"], Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(...middlewares));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (configureStore);\n\n//# sourceURL=webpack:///./src/configureStore.js?");
 
 /***/ }),
 
@@ -1362,39 +1195,39 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
+/***/ "./src/reducers/byId.js":
+/*!******************************!*\
+  !*** ./src/reducers/byId.js ***!
+  \******************************/
+/*! exports provided: default, getTodo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getTodo\", function() { return getTodo; });\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nconst byId = (state = {}, action) => {\n  switch (action.type) {\n    case 'RECEIVE_TODOS':\n      const nextState = _objectSpread({}, state);\n\n      action.response.forEach(todo => {\n        nextState[todo.id] = todo;\n      });\n      return nextState;\n\n    default:\n      return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (byId);\nconst getTodo = (state, id) => state[id];\n\n//# sourceURL=webpack:///./src/reducers/byId.js?");
+
+/***/ }),
+
+/***/ "./src/reducers/createList.js":
+/*!************************************!*\
+  !*** ./src/reducers/createList.js ***!
+  \************************************/
+/*! exports provided: default, getIds, getIsFetching */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getIds\", function() { return getIds; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getIsFetching\", function() { return getIsFetching; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n\n\nconst createList = filter => {\n  const ids = (state = [], action) => {\n    if (filter !== action.filter) {\n      return state;\n    }\n\n    switch (action.type) {\n      case 'RECEIVE_TODOS':\n        return action.response.map(todo => todo.id);\n\n      default:\n        return state;\n    }\n  };\n\n  const isFetching = (state = false, action) => {\n    if (filter !== action.filter) {\n      return state;\n    }\n\n    switch (action.type) {\n      case 'REQUEST_TODOS':\n        return true;\n\n      case 'RECEIVE_TODOS':\n        return false;\n\n      default:\n        console.log('Haven\\'t recognized action.type');\n        return state;\n    }\n  };\n\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n    ids,\n    isFetching\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (createList); // will change in the future\n\nconst getIds = state => state.ids;\nconst getIsFetching = state => state.isFetching;\n\n//# sourceURL=webpack:///./src/reducers/createList.js?");
+
+/***/ }),
+
 /***/ "./src/reducers/index.js":
 /*!*******************************!*\
   !*** ./src/reducers/index.js ***!
   \*******************************/
-/*! exports provided: default, getVisibleTodos */
+/*! exports provided: default, getVisibleTodos, getIsFetching */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getVisibleTodos\", function() { return getVisibleTodos; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _todos_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todos.js */ \"./src/reducers/todos.js\");\n\n\nconst todoApp = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  todos: _todos_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (todoApp);\nconst getVisibleTodos = (state, filter) => _todos_js__WEBPACK_IMPORTED_MODULE_1__[\"getVisibleTodos\"](state.todos, filter);\n\n//# sourceURL=webpack:///./src/reducers/index.js?");
-
-/***/ }),
-
-/***/ "./src/reducers/todo.js":
-/*!******************************!*\
-  !*** ./src/reducers/todo.js ***!
-  \******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nconst todo = (state, action) => {\n  switch (action.type) {\n    case 'ADD_TODO':\n      return {\n        id: action.id,\n        text: action.text,\n        completed: false\n      };\n\n    case 'TOGGLE_TODO':\n      if (state.id !== action.id) {\n        return state;\n      }\n\n      return _objectSpread({}, state, {\n        completed: !state.completed\n      });\n\n    case 'DELETE_TODO':\n      if (state.id === action.id) {\n        return true;\n      }\n\n      return false;\n\n    default:\n      return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (todo);\n\n//# sourceURL=webpack:///./src/reducers/todo.js?");
-
-/***/ }),
-
-/***/ "./src/reducers/todos.js":
-/*!*******************************!*\
-  !*** ./src/reducers/todos.js ***!
-  \*******************************/
-/*! exports provided: getVisibleTodos, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getVisibleTodos\", function() { return getVisibleTodos; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ \"./src/reducers/todo.js\");\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\n\nconst byId = (state = {}, action) => {\n  switch (action.type) {\n    case 'ADD_TODO':\n    case 'TOGGLE_TODO':\n      return _objectSpread({}, state, {\n        [action.id]: Object(_todo_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(state[action.id], action)\n      });\n\n    case 'DELETE_TODO':\n      let newState = _objectSpread({}, state);\n\n      delete newState[action.id];\n      return newState;\n\n    default:\n      return state;\n  }\n};\n\nconst allIds = (state = [], action) => {\n  switch (action.type) {\n    case 'ADD_TODO':\n      return [...state, action.id];\n\n    case 'DELETE_TODO':\n      return state.filter(id => id !== action.id);\n\n    default:\n      return state;\n  }\n};\n\nconst todos = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  byId,\n  idsByFilter\n});\nconst getVisibleTodos = (state, filter) => {\n  const ids = state.idsByFilter[filter];\n  return ids.map(id => state.byId[id]);\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (todos);\n\n//# sourceURL=webpack:///./src/reducers/todos.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getVisibleTodos\", function() { return getVisibleTodos; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getIsFetching\", function() { return getIsFetching; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _byId__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./byId */ \"./src/reducers/byId.js\");\n/* harmony import */ var _createList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createList */ \"./src/reducers/createList.js\");\n\n\n\nconst listByFilter = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  all: Object(_createList__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('all'),\n  active: Object(_createList__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('active'),\n  completed: Object(_createList__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('completed')\n});\nconst todos = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  byId: _byId__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  listByFilter\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (todos);\nconst getVisibleTodos = (state, filter) => {\n  const ids = _createList__WEBPACK_IMPORTED_MODULE_2__[\"getIds\"](state.listByFilter[filter]);\n  return ids.map(id => _byId__WEBPACK_IMPORTED_MODULE_1__[\"getTodo\"](state.byId, id));\n}; // delegates getIsFetching to another selector defined in createList\n\nconst getIsFetching = (state, filter) => _createList__WEBPACK_IMPORTED_MODULE_2__[\"getIsFetching\"](state.listByFilter[filter]);\n\n//# sourceURL=webpack:///./src/reducers/index.js?");
 
 /***/ }),
 

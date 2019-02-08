@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 // Action creators
 import * as actions from '../actions/actionCreators.js'
 // Selector
-import { getVisibleTodos } from '../reducers'
+import { getVisibleTodos, getIsFetching } from '../reducers'
 
 const Todo = ({
 	text, 
@@ -63,15 +63,18 @@ class VisibleTodoList extends React.Component {
 	}
 
 	render() {
+		const {isFetching, deleteTodo, toggleTodo, todos} = this.props
+		if (isFetching && !todos.length) {
+			return <ul><li>Loading...</li></ul>
+		}
 
-			const {deleteTodo, toggleTodo, ...rest} = this.props
-			return (
-				<TodoList 
-					{...rest} 
-					onTodoClick={toggleTodo}
-					onDeleteClick={deleteTodo}
-				/>
-			)
+		return (
+			<TodoList 
+				todos={todos}
+				onTodoClick={toggleTodo}
+				onDeleteClick={deleteTodo}
+			/>
+		)
 	}
 }
 
@@ -79,6 +82,7 @@ const mapStateToProps = (state, { match }) => {
 	const filter = match.params.filter || 'all'
 	return {
 		todos: getVisibleTodos(state, filter),
+		isFetching: getIsFetching(state, filter),
 		filter
 	}
 }
