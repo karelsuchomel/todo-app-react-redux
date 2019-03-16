@@ -7,7 +7,7 @@ import { BrowserRouter, Route} from 'react-router-dom'
 const Root = ({ store }) => (
 	<Provider store={store}>
 		<BrowserRouter>
-			<Route path="/egghead-redux-1-and-2/s02-lesson-1-null-todo-app-example/build/:filter?" component={TodoApp} />
+			<Route path="/todo-app-react-redux/s02-lesson-1-null-todo-app-example/build/:filter?" component={TodoApp} />
 		</BrowserRouter> 
 	</Provider>
 )

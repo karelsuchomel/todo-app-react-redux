@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const FilterLink = ({ filter, children }) => (
 	<NavLink 
 		exact
-		to={'/egghead-redux-1-and-2/s02-lesson-1-null-todo-app-example/build/' + (filter === 'all' ? '' : filter)}
+		to={'/todo-app-react-redux/s02-lesson-1-null-todo-app-example/build/' + (filter === 'all' ? '' : filter)}
 		activeClassName="selected"
 	>
 		{children}
