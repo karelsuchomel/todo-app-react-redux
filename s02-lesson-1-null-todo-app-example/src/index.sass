@@ -50,8 +50,8 @@ h1
 		background-color: #ff6b6b
 		color: white
 		font-weight: 700
-		cursor: pointer
 		text-decoration: none
+		cursor: default
 
 		&:hover, &:focus
 			background-color: #D43839
@@ -65,7 +65,6 @@ h1
 		background-color: #DDD
 		border-color: #AAA !important
 		box-shadow: none
-		cursor: default
 		transition: 0s
 		color: #777
 
@@ -102,7 +101,6 @@ ul
 			margin: 8px
 			border-radius: 3px
 			border: 0
-			cursor: pointer
 
 			color: white
 			width: 26px
@@ -123,3 +121,31 @@ ul
 	li.completed
 		color: #999
 		text-decoration: line-through
+
+.error-message-fetch-failure
+	padding: 8px 12px
+	line-height: 25px
+	margin: 10px 0
+	border-radius: 3px
+	background-color: #FFE794
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2)
+	border: 1px solid white
+	
+	color: #555
+	font-family: 'Source Sans Pro', sans-serif
+	font-size: 16px
+	text-align: left
+
+	button
+		position: inline-block
+		background-color: #CCC
+		padding: 4px 8px
+		margin: 8px
+		border-radius: 3px
+		border: 0
+
+		color: #555
+
+		&:hover, &:active, &:focus
+			background-color: #DDD
+

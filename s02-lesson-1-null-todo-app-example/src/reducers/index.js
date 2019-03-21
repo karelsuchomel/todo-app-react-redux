@@ -20,6 +20,8 @@ export const getVisibleTodos = (state, filter) => {
   return ids.map(id => fromById.getTodo(state.byId, id))
 }
 
-// delegates getIsFetching to another selector defined in createList
 export const getIsFetching = (state, filter) => 
 	fromCreateList.getIsFetching(state.listByFilter[filter])
+
+export const getErrorMessage = (state, filter) => 
+	fromCreateList.getErrorMessage(state.listByFilter[filter])
