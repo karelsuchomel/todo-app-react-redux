@@ -2,30 +2,33 @@ import {combineReducers} from 'redux'
 
 const createList = (filter) => {
 	const ids = (state = [], action) => {
-		if (filter !== action.filter) {
-      return state;
-    }
 		switch (action.type) {
 			case 'FETCH_TODOS_SUCCESS':
-				return action.response.map(todo => todo.id);
+				return filter === action.filter ?
+					action.response.map(todo => todo.id) :
+					state
+			case 'ADD_TODO_SUCCESS':
+				return filter !== 'completed' ?
+					[...state, action.response.id] :
+					state
 			default:
-				return state;
+				return state
 		}
 	}
 
 	const isFetching = (state = false, action) => {
 		if (filter !== action.filter) {
-      return state;
+      return state
     }
     switch (action.type) {
       case 'FETCH_TODOS_REQUEST':
-        return true;
+        return true
       case 'FETCH_TODOS_SUCCESS':
       case 'FETCH_TODOS_FAILURE':
-        return false;
+        return false
       default:
       	console.log('Haven\'t recognized action.type')
-        return state;
+        return state
     }
 	}
 

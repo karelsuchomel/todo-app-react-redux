@@ -28,7 +28,7 @@ export const fetchTodos = (filter) =>
 	delay(400).then( response => {
 
 		if(Math.random() < 0.25) {
-			throw new Error('This error is thrown in 25% cases, to show how will the application handle it.')
+			throw new Error('Couldn\'t fetch todos. This error is thrown in 25% cases, to show how will the application handle it.')
 		}
 
 		switch (filter) {
@@ -44,22 +44,23 @@ export const fetchTodos = (filter) =>
 	})
 
 export const addTodo = (text) =>
-	delay(400).then(response => {
-		let newTodo = {
+	delay(400).then(() => {
+		let todo = {
 			id: v4(),
 			completed: false,
 			text
 		}
-		fakeDatabase.todos.push(newTodo)
-		return newTodo
+		fakeDatabase.todos.push(todo)
+		return todo
 	})
 
 
 
 export const toggleTodo = (id) =>
-	delay(400).then(response => {
-		fakeDatabase.todos[id].completed = !fakeDatabase.todos[id].completed
-		return fakeDatabase.todos[id]
+	delay(400).then(() => {
+		const todo = fakeDatabase.todos.find(t => id === t.id)
+		todo.completed = !todo.completed
+		return todo
 	})
 
 
