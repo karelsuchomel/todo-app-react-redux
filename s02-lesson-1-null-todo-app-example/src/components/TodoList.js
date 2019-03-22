@@ -70,14 +70,11 @@ class VisibleTodoList extends React.Component {
 			return <ul><li>Loading...</li></ul>
 		}
 
-		let error
-		if (errorMessage) {
-			error = <FetchError message={errorMessage} onRetry={() => this.fetchData()}/>
-		}
-
 		return (
 			<div>
-				{error}
+				{errorMessage !== null &&
+					<FetchError message={errorMessage} onRetry={() => this.fetchData()}/>
+				}
 				<TodoList 
 					todos={todos}
 					onTodoClick={toggleTodo}
