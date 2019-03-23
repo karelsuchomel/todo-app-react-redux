@@ -6,15 +6,15 @@ import v4 from '../utils/uuid'
 const fakeDatabase = {
 	todos: [{
 		id: v4(),
-		text: 'All the lonely people, from where do they come from?',
+		text: 'Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present. ',
 		completed: true,
 	}, {
 		id: v4(),
-		text: 'Ridiculus! Ridiculus! Ridiculus!',
+		text: 'Accept the things to which fate binds you, and love the people with whom fate brings you together, but do so with all your heart. ',
 		completed: true,
 	}, {
 		id: v4(),
-		text: 'Something rather mischievous',
+		text: 'A man\'s worth is no greater than his ambitions.',
 		completed: false,
 	}],
 }
@@ -25,7 +25,7 @@ const delay = (ms) =>
 }
 
 export const fetchTodos = (filter) => 
-	delay(400).then( response => {
+	delay(200).then( response => {
 
 		if(Math.random() < 0.25) {
 			throw new Error('Couldn\'t fetch todos. This error is thrown in 25% cases, to show how will the application handle it.')
@@ -44,7 +44,7 @@ export const fetchTodos = (filter) =>
 	})
 
 export const addTodo = (text) =>
-	delay(400).then(() => {
+	delay(200).then(() => {
 		let todo = {
 			id: v4(),
 			completed: false,
@@ -57,7 +57,7 @@ export const addTodo = (text) =>
 
 
 export const toggleTodo = (id) =>
-	delay(400).then(() => {
+	delay(200).then(() => {
 		const todo = fakeDatabase.todos.find(t => id === t.id)
 		todo.completed = !todo.completed
 		return todo
