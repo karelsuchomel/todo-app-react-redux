@@ -54,9 +54,11 @@ export const toggleTodo = (id) => (dispatch) =>
 			})
 	)
 
-export const deleteTodo = (id) => (
-	{
-		type: 'DELETE_TODO',
-		id
-	}
-)
+export const deleteTodo = (id) => (dispatch) =>
+	api.removeTodo(id).then(
+		response =>
+			dispatch({
+				type: 'REMOVE_TODO_SUCCESS',
+				response: normalize(response, schema.todo)
+			})
+	)

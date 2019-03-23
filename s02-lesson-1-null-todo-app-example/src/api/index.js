@@ -19,16 +19,16 @@ const fakeDatabase = {
 	}],
 }
 
-const delay = (ms) => 
+const delay = (ms = 400) => 
 {
 	return new Promise(resolve => setTimeout(resolve, ms, fakeDatabase))
 }
 
 export const fetchTodos = (filter) => 
-	delay(200).then( response => {
+	delay().then( response => {
 
-		if(Math.random() < 0.25) {
-			throw new Error('Couldn\'t fetch todos. This error is thrown in 25% cases, to show how will the application handle it.')
+		if(Math.random() < 0.1) {
+			throw new Error('Couldn\'t fetch todos. This error is thrown in 10% cases, to show how will the application handle it.')
 		}
 
 		switch (filter) {
@@ -44,7 +44,7 @@ export const fetchTodos = (filter) =>
 	})
 
 export const addTodo = (text) =>
-	delay(200).then(() => {
+	delay().then(() => {
 		let todo = {
 			id: v4(),
 			completed: false,
@@ -57,9 +57,16 @@ export const addTodo = (text) =>
 
 
 export const toggleTodo = (id) =>
-	delay(200).then(() => {
-		const todo = fakeDatabase.todos.find(t => id === t.id)
+	delay().then(() => {
+		const todo = fakeDatabase.todos.find(t => t.id === id )
 		todo.completed = !todo.completed
+		return todo
+	})
+
+export const removeTodo = (id) =>
+	delay().then(() => {
+		const todo = fakeDatabase.todos.find(t => t.id === id )
+		fakeDatabase.todos = fakeDatabase.todos.filter(t => t.id !== id)
 		return todo
 	})
 

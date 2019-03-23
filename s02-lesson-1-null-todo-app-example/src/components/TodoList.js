@@ -6,8 +6,6 @@ import { withRouter } from 'react-router-dom'
 import * as actions from '../actions/actionCreators.js'
 // Selector
 import { getErrorMessage, getVisibleTodos, getIsFetching } from '../reducers'
-// Components
-import FetchError from './FetchError.js'
 
 const Todo = ({
 	text, 
@@ -61,20 +59,14 @@ class VisibleTodoList extends React.Component {
 
 	fetchData() {
 		const {filter, fetchTodos} = this.props
-		fetchTodos(filter).then(() => console.log('job done!'))
+		fetchTodos(filter)
 	}
 
 	render() {
-		const {isFetching, errorMessage, deleteTodo, toggleTodo, todos} = this.props
-		if (isFetching && !todos.length) {
-			return <ul><li>Loading...</li></ul>
-		}
+		const {errorMessage, deleteTodo, toggleTodo, todos} = this.props
 
 		return (
 			<div>
-				{errorMessage !== null &&
-					<FetchError message={errorMessage} onRetry={() => this.fetchData()}/>
-				}
 				<TodoList 
 					todos={todos}
 					onTodoClick={toggleTodo}

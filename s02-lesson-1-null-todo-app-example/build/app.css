@@ -10,6 +10,44 @@ body {
   max-width: 495px;
   margin: 10px auto; }
 
+#header-bar:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+#header-bar .filters-container {
+  float: left; }
+
+#header-bar .loading-indicator {
+  float: right;
+  color: #AAA;
+  line-height: 34px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px; }
+
+@keyframes loadingRotation {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(180deg); } }
+  #header-bar .loading-indicator .loading-icon {
+    display: block;
+    float: right;
+    padding: 9px;
+    animation: loadingRotation 0.5s ease-in-out infinite alternate; }
+    #header-bar .loading-indicator .loading-icon:after {
+      content: "";
+      display: block;
+      clear: both; }
+    #header-bar .loading-indicator .loading-icon .loading-circle {
+      display: block;
+      float: left;
+      width: 8px;
+      height: 8px;
+      margin: 4px;
+      background-color: #AAA;
+      border-radius: 4px; }
+
 .form-element, .filters-container a, .filters-container a.selected, .create-todo-container input, .create-todo-container button {
   padding: 0 12px;
   display: block;
@@ -21,11 +59,11 @@ body {
   border-left: 0;
   background-color: #ff6b6b;
   color: white;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 14px;
   transition: border 0.2s, background-color 0.2s, box-shadow 0.2s;
   cursor: default;
-  text-decoration: none; }
+  text-decoration: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px; }
   .form-element:first-child, .filters-container a:first-child, .create-todo-container input:first-child, .create-todo-container button:first-child {
     border-radius: 3px 0 0 3px;
     border-left: 1px solid #ee5253; }

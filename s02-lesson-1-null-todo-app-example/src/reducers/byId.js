@@ -1,4 +1,10 @@
 const byId = (state = {}, action) => {
+  if(action.type === 'REMOVE_TODO_SUCCESS') {
+    const newState = state
+    delete newState[action.response.result]
+    return newState
+  }
+
   if(action.response) {
     return {
       ...state,
