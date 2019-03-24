@@ -6,6 +6,8 @@ import { withRouter } from 'react-router-dom'
 import * as actions from '../actions/actionCreators.js'
 // Selector
 import { getErrorMessage, getVisibleTodos, getIsFetching } from '../reducers'
+// Images
+import tumbleweedIconUrl from '../images/tumbleweed.svg'
 
 const Todo = ({
 	text, 
@@ -63,15 +65,17 @@ class VisibleTodoList extends React.Component {
 	}
 
 	render() {
-		const {errorMessage, deleteTodo, toggleTodo, todos} = this.props
+		const {isFetching, deleteTodo, toggleTodo, todos} = this.props
 
 		return (
 			<div>
-				<TodoList 
-					todos={todos}
-					onTodoClick={toggleTodo}
-					onDeleteClick={deleteTodo}
-				/>
+				{!isFetching && todos.length === 0 ?
+					(<img id="tumbleweed" src={tumbleweedIconUrl} />) :
+					(<TodoList 
+						todos={todos}
+						onTodoClick={toggleTodo}
+						onDeleteClick={deleteTodo}  />)
+				}
 			</div>
 		)
 	}
@@ -82,7 +86,6 @@ const mapStateToProps = (state, { match }) => {
 	return {
 		todos: getVisibleTodos(state, filter),
 		isFetching: getIsFetching(state, filter),
-		errorMessage: getErrorMessage(state, filter),
 		filter
 	}
 }

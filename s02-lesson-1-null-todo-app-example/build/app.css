@@ -18,7 +18,7 @@ body {
 #header-bar .filters-container {
   float: left; }
 
-#header-bar .loading-indicator {
+#header-bar .loading-indicator, #header-bar .error-message-fetch-failure {
   float: right;
   color: #AAA;
   line-height: 34px;
@@ -30,23 +30,72 @@ body {
     transform: rotate(0deg); }
   to {
     transform: rotate(180deg); } }
-  #header-bar .loading-indicator .loading-icon {
+
+#header-bar .loading-indicator .loading-icon {
+  display: block;
+  float: right;
+  padding: 9px;
+  animation: loadingRotation 0.4s ease-in-out infinite alternate; }
+  #header-bar .loading-indicator .loading-icon:after {
+    content: "";
     display: block;
+    clear: both; }
+  #header-bar .loading-indicator .loading-icon .loading-circle {
+    display: block;
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 4px;
+    background-color: #AAA;
+    border-radius: 4px; }
+
+#header-bar .error-message-fetch-failure > label {
+  display: block;
+  float: left;
+  position: relative; }
+  #header-bar .error-message-fetch-failure > label:hover, #header-bar .error-message-fetch-failure > label:active {
+    color: #666; }
+    #header-bar .error-message-fetch-failure > label:hover > img, #header-bar .error-message-fetch-failure > label:active > img {
+      opacity: 0.7; }
+  #header-bar .error-message-fetch-failure > label > img {
     float: right;
-    padding: 9px;
-    animation: loadingRotation 0.5s ease-in-out infinite alternate; }
-    #header-bar .loading-indicator .loading-icon:after {
-      content: "";
-      display: block;
-      clear: both; }
-    #header-bar .loading-indicator .loading-icon .loading-circle {
-      display: block;
-      float: left;
-      width: 8px;
-      height: 8px;
-      margin: 4px;
-      background-color: #AAA;
-      border-radius: 4px; }
+    display: block;
+    opacity: 0.35;
+    height: 16px;
+    width: 16px;
+    padding: 9px 6px; }
+  #header-bar .error-message-fetch-failure > label input {
+    display: none; }
+    #header-bar .error-message-fetch-failure > label input:checked ~ .detailed-info {
+      display: block; }
+  #header-bar .error-message-fetch-failure > label .detailed-info {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    width: 220px;
+    padding: 14px 18px;
+    margin-left: 50%;
+    top: 34px;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    background-color: #FFFAB8;
+    color: #666;
+    line-height: 28px;
+    font-size: 16px; }
+
+#header-bar .error-message-fetch-failure button {
+  position: block;
+  float: right;
+  background-color: #BBB;
+  padding: 0 8px;
+  margin: 4px;
+  border-radius: 3px;
+  border: 0;
+  line-height: 24px;
+  color: #555; }
+  #header-bar .error-message-fetch-failure button:hover, #header-bar .error-message-fetch-failure button:active, #header-bar .error-message-fetch-failure button:focus {
+    background-color: #DDD; }
 
 .form-element, .filters-container a, .filters-container a.selected, .create-todo-container input, .create-todo-container button {
   padding: 0 12px;
@@ -151,25 +200,12 @@ ul {
     color: #999;
     text-decoration: line-through; }
 
-.error-message-fetch-failure {
-  padding: 8px 12px;
-  line-height: 25px;
-  margin: 10px 0;
-  border-radius: 3px;
-  background-color: #FFFAB8;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  color: #555;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
-  text-align: left; }
-  .error-message-fetch-failure button {
-    position: inline-block;
-    background-color: #CCC;
-    padding: 4px 8px;
-    margin: 8px;
-    border-radius: 3px;
-    border: 0;
-    color: #555; }
-    .error-message-fetch-failure button:hover, .error-message-fetch-failure button:active, .error-message-fetch-failure button:focus {
-      background-color: #DDD; }
+#tumbleweed {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 48px 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  z-index: -1; }
 

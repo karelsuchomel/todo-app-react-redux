@@ -7,7 +7,7 @@ const fakeDatabase = {
 	todos: [{
 		id: v4(),
 		text: 'Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present. ',
-		completed: true,
+		completed: false,
 	}, {
 		id: v4(),
 		text: 'Accept the things to which fate binds you, and love the people with whom fate brings you together, but do so with all your heart. ',
@@ -28,7 +28,7 @@ export const fetchTodos = (filter) =>
 	delay().then( response => {
 
 		if(Math.random() < 0.1) {
-			throw new Error('Couldn\'t fetch todos. This error is thrown in 10% cases, to show how will the application handle it.')
+			throw new Error('Couldn\'t fetch todos')
 		}
 
 		switch (filter) {
