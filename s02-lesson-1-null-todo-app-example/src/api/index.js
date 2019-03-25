@@ -44,7 +44,7 @@ export const fetchTodos = (filter) =>
 	})
 
 export const addTodo = (text) =>
-	delay().then(() => {
+	delay(0).then(() => {
 		let todo = {
 			id: v4(),
 			completed: false,
@@ -57,14 +57,14 @@ export const addTodo = (text) =>
 
 
 export const toggleTodo = (id) =>
-	delay().then(() => {
+	delay(0).then(() => {
 		const todo = fakeDatabase.todos.find(t => t.id === id )
 		todo.completed = !todo.completed
 		return todo
 	})
 
 export const removeTodo = (id) =>
-	delay().then(() => {
+	delay(0).then(() => {
 		const todo = fakeDatabase.todos.find(t => t.id === id )
 		fakeDatabase.todos = fakeDatabase.todos.filter(t => t.id !== id)
 		return todo
