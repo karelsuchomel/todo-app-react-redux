@@ -198,46 +198,87 @@ ul
 		background-color: white
 		box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2)
 		border: 1px solid white
+		overflow: hidden
 		
 		color: #555
 		font-family: 'Source Sans Pro', sans-serif
 		font-size: 16px
 		text-align: left
 
-		&:hover, &:focus
-			border: 1px solid #AAA
-
-			button
-				opacity: 1
-
-		button
-			opacity: 0
-			position: absolute
-			top: 0
-			right: 0
-			margin: 8px
-			border-radius: 3px
-			border: 0
-
-			color: white
-			width: 26px
-			height: 26px
-			background:
-				color: transparent
-				image: url('images/close-icon-gray.svg')
-				size: 14px 14px
-				position: center center
-				repeat: no-repeat
-
-			&:hover, &:active, &:focus
-				background:
-					image: url('images/close-icon.svg')
-
-
+		&:hover, &:focus, &:active
+			> .options-container
+				display: flex
 
 	li.completed
 		color: #999
 		text-decoration: line-through
+
+		//
+		// Options bar
+		//
+
+.options-container
+	display: none
+	flex-wrap: nowrap
+	position: absolute
+	top: 0
+	right: 0
+	border-bottom: 1px solid #AAA
+	border-left: 1px solid #AAA
+	border-radius: 0 0 0 3px
+	overflow: hidden
+
+	button
+		background-color: white
+		padding: 0 8px
+		border: 0
+		line-height: 41px
+
+		&:hover, &:active
+			background-color: #DDD
+
+	.toggle-todo, .edit-todo, .delete-todo
+		&:after
+			content: ""
+			display: block
+			float: right
+			width: 26px
+			height: 41px
+			background-size: 18px 18px
+			background-position: center
+			background-repeat: no-repeat
+
+	.toggle-todo
+		&:after
+			background:
+				image: url('images/complete-icon.svg')
+
+		&:hover, &:active
+			&:after
+				background:
+					image: url('images/complete-hover-icon.svg')
+
+	.edit-todo
+		&:after
+			background:
+				image: url('images/edit-icon.svg')
+
+		&:hover, &:active
+			&:after
+				background:
+					image: url('images/edit-hover-icon.svg')
+
+	.delete-todo
+		&:after
+			background:
+				image: url('images/close-icon-gray.svg')
+
+		&:hover, &:active
+			&:after
+				background:
+					image: url('images/close-icon.svg')
+
+
 
 #tumbleweed
 	display: block

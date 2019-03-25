@@ -59,6 +59,16 @@ export const toggleTodo = (id) => (dispatch) =>
 			})
 	)
 
+export const editTodo = (id, text) => (dispatch) =>
+	api.editTodo(id, text).then(
+		response =>
+			dispatch({
+				type: 'EDIT_TODO_SUCCESS',
+				response: normalize(response, schema.todo)
+			})
+	)
+
+
 export const deleteTodo = (id) => (dispatch) =>
 	api.removeTodo(id).then(
 		response =>

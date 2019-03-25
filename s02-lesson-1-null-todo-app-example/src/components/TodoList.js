@@ -6,43 +6,26 @@ import { withRouter } from 'react-router-dom'
 import * as actions from '../actions/actionCreators.js'
 // Selector
 import { getErrorMessage, getVisibleTodos, getIsFetching } from '../reducers'
+// Components
+import Todo from './Todo.js'
 // Images
 import tumbleweedIconUrl from '../images/tumbleweed.svg'
 
-const Todo = ({
-	text, 
-	completed, 
-	onClick,
-	onDeleteClick
-}) => (
-	<li 
-		className={completed ? "completed" : ""} 
-		onClick={onClick}
-		tabIndex={0}
-	>
-	{text}
-		<button onClick={(e) => {
-			e.stopPropagation()
-			onDeleteClick()
-		}}>
-		</button>
-	</li>
-)
 
 const TodoList = ({
 	todos,
-	onTodoClick,
-	onDeleteClick
+	toggleTodo,
+	deleteTodo,
+	editTodo
 }) => (
 	<ul>
 		{todos.map(t => 
 			<Todo
 				{...t}
 				key={t.id}
-				onClick={() => onTodoClick(t.id)}
-				onDeleteClick={() => {
-					onDeleteClick(t.id)
-				}}
+				toggleTodo={() => toggleTodo(t.id)}
+				editTodo={() => editTodo(t.id)}
+				deleteTodo={() => deleteTodo(t.id)}
 			/>
 		)}
 	</ul>
@@ -65,7 +48,7 @@ class VisibleTodoList extends React.Component {
 	}
 
 	render() {
-		const {isFetching, deleteTodo, toggleTodo, todos} = this.props
+		const {isFetching, editTodo, deleteTodo, toggleTodo, todos} = this.props
 
 		return (
 			<div>
@@ -73,8 +56,9 @@ class VisibleTodoList extends React.Component {
 					(<img id="tumbleweed" src={tumbleweedIconUrl} />) :
 					(<TodoList 
 						todos={todos}
-						onTodoClick={toggleTodo}
-						onDeleteClick={deleteTodo}  />)
+						toggleTodo={toggleTodo}
+						editTodo={editTodo}
+						deleteTodo={deleteTodo}  />)
 				}
 			</div>
 		)

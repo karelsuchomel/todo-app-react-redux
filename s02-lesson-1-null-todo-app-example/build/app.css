@@ -170,35 +170,55 @@ ul {
     background-color: white;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid white;
+    overflow: hidden;
     color: #555;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     text-align: left; }
-    ul li:hover, ul li:focus {
-      border: 1px solid #AAA; }
-      ul li:hover button, ul li:focus button {
-        opacity: 1; }
-    ul li button {
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 8px;
-      border-radius: 3px;
-      border: 0;
-      color: white;
-      width: 26px;
-      height: 26px;
-      background-color: transparent;
-      background-image: url(media/close-icon-gray.7d1e8697.svg);
-      background-size: 14px 14px;
-      background-position: center center;
-      background-repeat: no-repeat; }
-      ul li button:hover, ul li button:active, ul li button:focus {
-        background-image: url(media/close-icon.c51814d2.svg); }
+    ul li:hover > .options-container, ul li:focus > .options-container, ul li:active > .options-container {
+      display: flex; }
   ul li.completed {
     color: #999;
     text-decoration: line-through; }
+
+.options-container {
+  display: none;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom: 1px solid #AAA;
+  border-left: 1px solid #AAA;
+  border-radius: 0 0 0 3px;
+  overflow: hidden; }
+  .options-container button {
+    background-color: white;
+    padding: 0 8px;
+    border: 0;
+    line-height: 41px; }
+    .options-container button:hover, .options-container button:active {
+      background-color: #DDD; }
+  .options-container .toggle-todo:after, .options-container .edit-todo:after, .options-container .delete-todo:after {
+    content: "";
+    display: block;
+    float: right;
+    width: 26px;
+    height: 41px;
+    background-size: 18px 18px;
+    background-position: center;
+    background-repeat: no-repeat; }
+  .options-container .toggle-todo:after {
+    background-image: url(media/complete-icon.6c7848e9.svg); }
+  .options-container .toggle-todo:hover:after, .options-container .toggle-todo:active:after {
+    background-image: url(media/complete-hover-icon.cec552ce.svg); }
+  .options-container .edit-todo:after {
+    background-image: url(media/edit-icon.95f76007.svg); }
+  .options-container .edit-todo:hover:after, .options-container .edit-todo:active:after {
+    background-image: url(media/edit-hover-icon.7b7d6383.svg); }
+  .options-container .delete-todo:after {
+    background-image: url(media/close-icon-gray.d75d5e3b.svg); }
+  .options-container .delete-todo:hover:after, .options-container .delete-todo:active:after {
+    background-image: url(media/close-icon.80582617.svg); }
 
 #tumbleweed {
   display: block;
