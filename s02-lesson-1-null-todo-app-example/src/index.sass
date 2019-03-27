@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700')
 
+//
+// unselectable element
+//
+unselectable
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
 html
 	-ms-touch-action: manipulation
 	touch-action: manipulation
@@ -56,6 +67,7 @@ body
 
 	.error-message-fetch-failure
 		> label
+			@extend unselectable
 			display: block
 			float: left
 			position: relative
@@ -191,7 +203,7 @@ ul
 	li
 		position: relative
 		display: block
-		padding: 8px 12px
+		padding: 8px
 		line-height: 25px
 		margin: 10px 0
 		border-radius: 3px
@@ -206,8 +218,14 @@ ul
 		text-align: left
 
 		&:hover, &:focus, &:active
-			> .options-container
+			> #options-container
 				display: flex
+
+		> div
+			padding: 2px 6px
+
+		.editable
+			outline: 2px solid #D43839
 
 	li.completed
 		color: #999
@@ -217,7 +235,7 @@ ul
 		// Options bar
 		//
 
-.options-container
+#options-container
 	display: none
 	flex-wrap: nowrap
 	position: absolute
@@ -281,6 +299,8 @@ ul
 
 
 #tumbleweed
+	@extend unselectable
+
 	display: block
 	width: 100%
 	height: auto

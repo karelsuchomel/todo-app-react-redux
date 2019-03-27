@@ -59,11 +59,11 @@ export const toggleTodo = (id) => (dispatch) =>
 			})
 	)
 
-export const editTodo = (id, text) => (dispatch) =>
-	api.editTodo(id, text).then(
+export const updateTodo = (id, text) => (dispatch) =>
+	api.updateTodo(id, text).then(
 		response =>
 			dispatch({
-				type: 'EDIT_TODO_SUCCESS',
+				type: 'UPDATE_TODO_SUCCESS',
 				response: normalize(response, schema.todo)
 			})
 	)

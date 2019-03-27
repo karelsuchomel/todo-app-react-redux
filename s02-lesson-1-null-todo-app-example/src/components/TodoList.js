@@ -23,6 +23,7 @@ const TodoList = ({
 			<Todo
 				{...t}
 				key={t.id}
+				reduxId={t.id}
 				toggleTodo={() => toggleTodo(t.id)}
 				editTodo={() => editTodo(t.id)}
 				deleteTodo={() => deleteTodo(t.id)}

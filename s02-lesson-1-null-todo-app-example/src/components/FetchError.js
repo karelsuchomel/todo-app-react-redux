@@ -1,5 +1,5 @@
 import React from 'react'
-import iconUrl from '../images/icon-what-is-this.svg'
+import iconUrl from '../images/warning.svg'
 
 const FetchError = ({message, onRetry}) => (
 	<div className='error-message-fetch-failure'>

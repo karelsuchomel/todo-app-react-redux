@@ -1,4 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+unselectable, #header-bar .error-message-fetch-failure > label, #tumbleweed {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 html {
   -ms-touch-action: manipulation;
   touch-action: manipulation; }
@@ -163,7 +171,7 @@ ul {
   ul li {
     position: relative;
     display: block;
-    padding: 8px 12px;
+    padding: 8px;
     line-height: 25px;
     margin: 10px 0;
     border-radius: 3px;
@@ -175,13 +183,17 @@ ul {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     text-align: left; }
-    ul li:hover > .options-container, ul li:focus > .options-container, ul li:active > .options-container {
+    ul li:hover > #options-container, ul li:focus > #options-container, ul li:active > #options-container {
       display: flex; }
+    ul li > div {
+      padding: 2px 6px; }
+    ul li .editable {
+      outline: 2px solid #D43839; }
   ul li.completed {
     color: #999;
     text-decoration: line-through; }
 
-.options-container {
+#options-container {
   display: none;
   flex-wrap: nowrap;
   position: absolute;
@@ -191,14 +203,14 @@ ul {
   border-left: 1px solid #AAA;
   border-radius: 0 0 0 3px;
   overflow: hidden; }
-  .options-container button {
+  #options-container button {
     background-color: white;
     padding: 0 8px;
     border: 0;
     line-height: 41px; }
-    .options-container button:hover, .options-container button:active {
+    #options-container button:hover, #options-container button:active {
       background-color: #DDD; }
-  .options-container .toggle-todo:after, .options-container .edit-todo:after, .options-container .delete-todo:after {
+  #options-container .toggle-todo:after, #options-container .edit-todo:after, #options-container .delete-todo:after {
     content: "";
     display: block;
     float: right;
@@ -207,17 +219,17 @@ ul {
     background-size: 18px 18px;
     background-position: center;
     background-repeat: no-repeat; }
-  .options-container .toggle-todo:after {
+  #options-container .toggle-todo:after {
     background-image: url(media/complete-icon.6c7848e9.svg); }
-  .options-container .toggle-todo:hover:after, .options-container .toggle-todo:active:after {
+  #options-container .toggle-todo:hover:after, #options-container .toggle-todo:active:after {
     background-image: url(media/complete-hover-icon.cec552ce.svg); }
-  .options-container .edit-todo:after {
+  #options-container .edit-todo:after {
     background-image: url(media/edit-icon.95f76007.svg); }
-  .options-container .edit-todo:hover:after, .options-container .edit-todo:active:after {
+  #options-container .edit-todo:hover:after, #options-container .edit-todo:active:after {
     background-image: url(media/edit-hover-icon.7b7d6383.svg); }
-  .options-container .delete-todo:after {
+  #options-container .delete-todo:after {
     background-image: url(media/close-icon-gray.d75d5e3b.svg); }
-  .options-container .delete-todo:hover:after, .options-container .delete-todo:active:after {
+  #options-container .delete-todo:hover:after, #options-container .delete-todo:active:after {
     background-image: url(media/close-icon.80582617.svg); }
 
 #tumbleweed {

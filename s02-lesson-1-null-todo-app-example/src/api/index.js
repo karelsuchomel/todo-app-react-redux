@@ -63,7 +63,7 @@ export const toggleTodo = (id) =>
 		return todo
 	})
 
-export const editTodo = (id, text) =>
+export const updateTodo = (id, text) =>
 	delay(0).then(() => {
 		const todo = fakeDatabase.todos.find(t => t.id === id )
 		todo.text = text
