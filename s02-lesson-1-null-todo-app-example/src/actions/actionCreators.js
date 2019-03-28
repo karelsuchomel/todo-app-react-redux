@@ -49,6 +49,11 @@ export const addTodo = (text) => (dispatch) => {
 	)
 }
 
+export const reorderTodos = (filter, todos) => (dispatch) =>
+	dispatch({
+		type: 'REORDER_TODOS_SUCCESS',
+		response: normalize(todos, schema.arrayOfTodos)
+	})
 
 export const toggleTodo = (id) => (dispatch) =>
 	api.toggleTodo(id).then(

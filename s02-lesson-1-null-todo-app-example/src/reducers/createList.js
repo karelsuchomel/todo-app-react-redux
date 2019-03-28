@@ -27,6 +27,8 @@ const createList = (filter) => {
 				return handleToggle(state ,action)
 			case 'REMOVE_TODO_SUCCESS':
 				return state.filter(t => t !== action.response.result)
+			case 'REORDER_TODOS_SUCCESS':
+				return action.response.result
 			default:
 				return state
 		}
